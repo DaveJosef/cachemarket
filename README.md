@@ -1,5 +1,6 @@
 # Cache Market
 
+<<<<<<< HEAD
 API utilizando Lazy-Loading com Redis e PostgreSQL em um domínio market place
 
 # Instalação
@@ -29,3 +30,6 @@ REDIS_PORT={Porta do Redis}
 Para executar a aplicação você terá que executar o seguinte comando no terminal:
 
 $ npm start
+=======
+Aplicação simulando market place onde são usados o Redis e o PostgreSQL por meio Lazy-Loading
+>>>>>>> f48f8bbb1a087ad9e1333b64b4c4d6178a334391
