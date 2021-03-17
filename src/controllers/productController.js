@@ -49,17 +49,17 @@ module.exports = {
 
     async store(req, res) {
 
-        const { code, name, quantity, price } = req.body;
+        const { code, p_name, quantity, price } = req.body;
 
         await query(
             'INSERT INTO products (code, p_name, quantity, price) VALUES ($1, $2, $3, $4)',
-            [code, name, quantity, price]
+            [code, p_name, quantity, price]
         );
 
         res.status(201).send({
             message: "Produto adicionado!",
             body: {
-                product: { code, name, quantity, price }
+                product: { code, p_name, quantity, price }
             },
         });
     },
@@ -67,11 +67,11 @@ module.exports = {
     async update(req, res) {
 
         const { id } = req.params;
-        const { code, name, quantity, price } = req.body;
+        const { code, p_name, quantity, price } = req.body;
 
         const { rows } = await query(
             'UPDATE products SET code = $1, p_name = $2, quantity = $3, price = $4 WHERE code = $5',
-            [code, name, quantity, price, id]
+            [code, p_name, quantity, price, id]
         );
 
         res.status(200).send({ message: "Produto atualizado!", product: rows });
@@ -81,11 +81,19 @@ module.exports = {
 
         const { id } = req.params;
 
+        client.get(id, async (err, reply) => {
+            if (reply != null) {
+
+                client.del(id);
+
+            }
+        });
+
         await query(
             'DELETE FROM products WHERE code = $1',
             [id]
         );
 
-        res.status(200).send({ message: "Produto excluido!" });
+        return res.status(200).send({ message: "Produto excluido!" });
     },
 };
