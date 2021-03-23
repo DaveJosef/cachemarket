@@ -6,12 +6,12 @@ API utilizando Lazy-Loading com Redis e PostgreSQL em um domínio market place
 
 Para instalar as dependências você vai precisar do NPM, tendo ele instalado você pode executar o seguinte comando no seu terminal:
 
-```node
+```npm
 $ npm i
 ```
 # Tabela e colunas do banco
 
-Foi usada uma tabela denominada products com as colunas code, p_name_, quantity e price sendo respectivamente o código, nome, quantidade e preço do produto
+Foi usada uma tabela denominada **products** com as colunas **code, p_name_, quantity e price** sendo respectivamente o **código, nome, quantidade e preço** do produto
 
 # Configuração da Variáveis
 
@@ -30,4 +30,6 @@ REDIS_PORT={Porta do Redis}
 
 Para executar a aplicação você terá que executar o seguinte comando no terminal:
   
+```npm
 $ npm start
+```
